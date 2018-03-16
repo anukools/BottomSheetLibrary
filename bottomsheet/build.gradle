@@ -1,0 +1,46 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+android {
+    compileSdkVersion 26
+
+    dataBinding {
+        enabled = true
+    }
+
+
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+publish {
+    groupId = 'com.github.anukool'
+    artifactId = 'tabmanager'
+    publishVersion = '1.0.1'
+    desc = 'Library to provide support for adding bottomsheet in android'
+    licences = ['Apache-2.0']
+    uploadName='TabManager'
+    website = 'https://github.com/stfalcon-studio/ContentManager.git'
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    testImplementation 'junit:junit:4.12'
+}
